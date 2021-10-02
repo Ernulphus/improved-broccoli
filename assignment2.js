@@ -96,10 +96,24 @@ console.log(arr.every( (x) => x < 5));
 console.log(" ");
 
 // REDUCE //
-Array.prototype.myReduce = function() {
+Array.prototype.myReduce = function(callbackFn, initialValue) {
+  let reduced = 0;
+  if (initialValue !== undefined)
+    reduced = initialValue;
+  for (let i = 0; i < this.length; i++)
+  {
+    if (this[i] === undefined) continue;
+    reduced = callbackFn(reduced, this[i], i, this);
+  }
 
+  return reduced;
 };
 
+// Testing reduce
+console.log("Testing reduce");
+console.log(arr.myReduce((a,b) => a + b, 10));
+console.log(arr.reduce((a,b) => a + b, 10));
+console.log(" ");
 
 // INCLUDES //
 Array.prototype.myIncludes = function() {
