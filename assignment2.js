@@ -10,14 +10,6 @@ Array.prototype.myEach = function(callbackFn) {
   return undefined;
 };
 
-const arr = [1,2,3,,4];
-// Testing foreach
-console.log("Testing foreach");
-arr.myEach( (x,i,t) => console.log(x,i,t));
-console.log(" ");
-arr.forEach( (x,i,t) => console.log(x,i,t));
-console.log(" ");
-
 // MAP //
 Array.prototype.myMap = function(callbackFn) {
   let newarr = new Array(this.length);
@@ -29,15 +21,6 @@ Array.prototype.myMap = function(callbackFn) {
   }
   return newarr;
 };
-
-// Testing map
-console.log("Testing map");
-arr2 = arr.myMap( (x, i) => x * i );
-console.log(arr2);
-console.log(" ");
-arr2 = arr.map( (x, i) => x * i );
-console.log(arr2);
-console.log(" ");
 
 // FILTER //
 Array.prototype.myFilter = function(callbackFn) {
@@ -55,15 +38,6 @@ Array.prototype.myFilter = function(callbackFn) {
   return newarr;
 };
 
-// Testing filter
-console.log("Testing filter");
-arr2 = arr.myFilter( (x) => x%2 == 0 );
-console.log(arr2);
-console.log(" ");
-arr2 = arr.filter( (x) => x%2 == 0 );
-console.log(arr2);
-console.log(" ");
-
 // SOME //
 Array.prototype.mySome = function(callbackFn) {
   for (let i = 0; i < this.length; i++)
@@ -73,12 +47,6 @@ Array.prototype.mySome = function(callbackFn) {
   }
   return false;
 };
-
-// Testing some
-console.log("Testing some");
-console.log(arr.mySome( (x) => x - 3 == 1));
-console.log(arr.some( (x) => x - 3 == 1));
-console.log(" ");
 
 // EVERY //
 Array.prototype.myEvery = function(callbackFn) {
@@ -91,12 +59,6 @@ Array.prototype.myEvery = function(callbackFn) {
   }
   return true;
 };
-
-// Testing every
-console.log("Testing every");
-console.log(arr.myEvery( (x) => x < 5));
-console.log(arr.every( (x) => x < 5));
-console.log(" ");
 
 // REDUCE //
 Array.prototype.myReduce = function(callbackFn, initialValue) {
@@ -112,12 +74,6 @@ Array.prototype.myReduce = function(callbackFn, initialValue) {
   return reduced;
 };
 
-// Testing reduce
-console.log("Testing reduce");
-console.log(arr.myReduce((a,b) => a + b, 10));
-console.log(arr.reduce((a,b) => a + b, 10));
-console.log(" ");
-
 // INCLUDES //
 Array.prototype.myIncludes = function(searchElement, fromIndex = 0) {
   if (fromIndex < 0)
@@ -130,13 +86,6 @@ Array.prototype.myIncludes = function(searchElement, fromIndex = 0) {
   }
   return false;
 };
-
-// Testing includes
-let inclarr = ["A"];
-console.log("Testing includes");
-console.log(inclarr.myIncludes("a"));
-console.log(inclarr.includes("a"));
-console.log(" ");
 
 // INDEXOF //
 Array.prototype.myIndexOf = function(searchElement, fromIndex = 0) {
@@ -151,13 +100,6 @@ Array.prototype.myIndexOf = function(searchElement, fromIndex = 0) {
   return -1;
 };
 
-// Testing indexOf
-
-console.log("Testing indexOf");
-console.log(arr.myIndexOf(3));
-console.log(arr.indexOf(3));
-console.log(" ");
-
 // PUSH //
 Array.prototype.myPush = function(...elements) {
   let len = this.length;
@@ -170,16 +112,6 @@ Array.prototype.myPush = function(...elements) {
   })
   return this.length;
 };
-
-// Testing push
-console.log("Testing push");
-let arr3 = [1,2,3];
-let arr4 = [4,5,6];
-arr3.myPush(...arr4);
-console.log(arr3);
-arr3.myPush(7,8);
-console.log(arr3);
-console.log(" ");
 
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function(searchElement, fromIndex = (this.length - 1)) {
@@ -202,12 +134,6 @@ Array.prototype.myLastIndexOf = function(searchElement, fromIndex = (this.length
   return -1;
 };
 
-// Testing lastIndexOf
-console.log("Testing lastIndexOf");
-console.log(arr.myLastIndexOf(3));
-console.log(arr.lastIndexOf(3));
-console.log(" ");
-
 // KEYS //
 Object.grabKeys = function(obj) {
   let keys = [];
@@ -217,16 +143,6 @@ Object.grabKeys = function(obj) {
   }
   return keys;
 };
-
-console.log("Testing keys");
-let obj = {
-  1 : "a",
-  2 : "b",
-  3 : "c"
-}
-console.log(Object.keys(obj));
-console.log(Object.grabKeys(obj));
-console.log(" ");
 
 // VALUES //
 Object.grabValues = function(obj) {
@@ -238,22 +154,94 @@ Object.grabValues = function(obj) {
   return values;
 };
 
+/* TESTING
+const arr = [1,2,3,,4];
+
+// Testing foreach
+console.log("Testing foreach");
+arr.myEach( (x,i,t) => console.log(x,i,t));
+console.log(" ");
+arr.forEach( (x,i,t) => console.log(x,i,t));
+console.log(" ");
+
+// Testing map
+console.log("Testing map");
+arr2 = arr.myMap( (x, i) => x * i );
+console.log(arr2);
+console.log(" ");
+arr2 = arr.map( (x, i) => x * i );
+console.log(arr2);
+console.log(" ");
+
+// Testing filter
+console.log("Testing filter");
+arr2 = arr.myFilter( (x) => x%2 == 0 );
+console.log(arr2);
+console.log(" ");
+arr2 = arr.filter( (x) => x%2 == 0 );
+console.log(arr2);
+console.log(" ");
+
+// Testing some
+console.log("Testing some");
+console.log(arr.mySome( (x) => x - 3 == 1));
+console.log(arr.some( (x) => x - 3 == 1));
+console.log(" ");
+
+// Testing every
+console.log("Testing every");
+console.log(arr.myEvery( (x) => x < 5));
+console.log(arr.every( (x) => x < 5));
+console.log(" ");
+
+// Testing reduce
+console.log("Testing reduce");
+console.log(arr.myReduce((a,b) => a + b, 10));
+console.log(arr.reduce((a,b) => a + b, 10));
+console.log(" ");
+
+// Testing includes
+let inclarr = ["A"];
+console.log("Testing includes");
+console.log(inclarr.myIncludes("a"));
+console.log(inclarr.includes("a"));
+console.log(" ");
+
+// Testing indexOf
+console.log("Testing indexOf");
+console.log(arr.myIndexOf(3));
+console.log(arr.indexOf(3));
+console.log(" ");
+
+// Testing push
+console.log("Testing push");
+let arr3 = [1,2,3];
+let arr4 = [4,5,6];
+arr3.myPush(...arr4);
+console.log(arr3);
+arr3.myPush(7,8);
+console.log(arr3);
+console.log(" ");
+
+// Testing lastIndexOf
+console.log("Testing lastIndexOf");
+console.log(arr.myLastIndexOf(3));
+console.log(arr.lastIndexOf(3));
+console.log(" ");
+console.log("Testing keys");
+let obj = {
+  1 : "a",
+  2 : "b",
+  3 : "c"
+}
+console.log(Object.keys(obj));
+console.log(Object.grabKeys(obj));
+console.log(" ");
+
 // Testing values
 console.log("Testing values");
 console.log(Object.values(obj));
 console.log(Object.grabValues(obj));
 console.log(" ");
 
-
-
-
-
-
-
-
-
-
-
-
-
-//
+*/
