@@ -62,9 +62,20 @@ console.log(arr2);
 console.log(" ");
 
 // SOME //
-Array.prototype.mySome = function() {
+Array.prototype.mySome = function(callbackFn) {
+  for (let i = 0; i < this.length; i++)
+  {
+    if (callbackFn(this[i], i, this))
+      return true;
+  }
+  return false;
 };
 
+// Testing some
+console.log("Testing some");
+console.log(arr.mySome( (x) => x - 3 == 1));
+console.log(arr.some( (x) => x - 3 == 1));
+console.log(" ");
 
 // EVERY //
 Array.prototype.myEvery = function() {
