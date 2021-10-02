@@ -129,16 +129,31 @@ Array.prototype.myIncludes = function(searchElement, fromIndex = 0) {
 };
 
 // Testing includes
-let inclarr = ["A"]
+let inclarr = ["A"];
 console.log("Testing includes");
 console.log(inclarr.myIncludes("a"));
 console.log(inclarr.includes("a"));
 console.log(" ");
 
 // INDEXOF //
-Array.prototype.myIndexOf = function() {
+Array.prototype.myIndexOf = function(searchElement, fromIndex = 0) {
+  if (fromIndex < 0)
+    fromIndex = this.length + fromIndex;
 
+  for (let i = fromIndex; i < this.length; i++)
+  {
+    if (this[i] === searchElement)
+      return i;
+  }
+  return -1;
 };
+
+// Testing indexOf
+
+console.log("Testing indexOf");
+console.log(arr.myIndexOf(3));
+console.log(arr.indexOf(3));
+console.log(" ");
 
 // PUSH //
 Array.prototype.myPush = function() {
