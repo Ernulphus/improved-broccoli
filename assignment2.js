@@ -40,10 +40,26 @@ console.log(arr2);
 console.log(" ");
 
 // FILTER //
-Array.prototype.myFilter = function() {
+Array.prototype.myFilter = function(callbackFn) {
+  let newarr = new Array;
+  for (let i = 0; i < this.length; i++)
+  {
+    if (this[i] === undefined) continue;
 
-}
+    if (callbackFn(this[i],i,this))
+      newarr.push(this[i]);
+  }
+  return newarr;
+};
 
+// Testing filter
+console.log("Testing filter");
+arr2 = arr.myFilter( (x) => x%2 == 0 );
+console.log(arr2);
+console.log(" ");
+arr2 = arr.filter( (x) => x%2 == 0 );
+console.log(arr2);
+console.log(" ");
 
 // SOME //
 Array.prototype.mySome = function() {
