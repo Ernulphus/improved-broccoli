@@ -226,14 +226,23 @@ let obj = {
 }
 console.log(Object.keys(obj));
 console.log(Object.grabKeys(obj));
+console.log(" ");
 
 // VALUES //
-Object.grabValues = function() {
-
+Object.grabValues = function(obj) {
+  let values = [];
+  for (let key in obj)
+  {
+    values.myPush(obj[key]);
+  }
+  return values;
 };
 
-
-
+// Testing values
+console.log("Testing values");
+console.log(Object.values(obj));
+console.log(Object.grabValues(obj));
+console.log(" ");
 
 
 
