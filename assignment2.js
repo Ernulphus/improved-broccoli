@@ -19,10 +19,25 @@ arr.forEach( (x,i,t) => console.log(x,i,t));
 console.log(" ");
 
 // MAP //
-Array.prototype.myMap = function() {
+Array.prototype.myMap = function(callbackFn) {
+  let newarr = new Array(this.length);
+  for (let i = 0; i < this.length; i++)
+  {
+    if (this[i] === undefined) continue;
 
+    newarr[i] = callbackFn(this[i],i,this);
+  }
+  return newarr;
 };
 
+// Testing map
+console.log("Testing map");
+arr2 = arr.myMap( (x, i) => x * i );
+console.log(arr2);
+console.log(" ");
+arr2 = arr.map( (x, i) => x * i );
+console.log(arr2);
+console.log(" ");
 
 // FILTER //
 Array.prototype.myFilter = function() {
