@@ -156,13 +156,33 @@ console.log(arr.indexOf(3));
 console.log(" ");
 
 // PUSH //
-Array.prototype.myPush = function() {
+Array.prototype.myPush = function(...elements) {
+  let len = this.length;
+  let argCount = elements.length;
 
+  elements.myEach((x,i,t) =>
+  {
+    this.length++;
+    this[len + i] = x;
+  })
+  return this.length;
 };
 
-// LASTINDEXOF //
-Array.prototype.myLastIndexOf = function() {
+// Testing push
+let arr3 = [1,2,3];
+let arr4 = [4,5,6];
+arr3.myPush(...arr4);
+console.log(arr3);
+arr3.myPush(7,8);
+console.log(arr3);
+console.log();
 
+// LASTINDEXOF //
+Array.prototype.myLastIndexOf = function(searchElement, fromIndex = (this.length - 1)) {
+  for (let i = fromIndex; i >= 0; i--)
+  {
+    
+  }
 };
 
 // KEYS //
