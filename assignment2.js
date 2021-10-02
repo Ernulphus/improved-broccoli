@@ -41,13 +41,16 @@ console.log(" ");
 
 // FILTER //
 Array.prototype.myFilter = function(callbackFn) {
-  let newarr = new Array;
+  let newarr = [];
   for (let i = 0; i < this.length; i++)
   {
     if (this[i] === undefined) continue;
 
     if (callbackFn(this[i],i,this))
-      newarr.push(this[i]);
+    {
+      newarr.length++;
+      newarr[newarr.length - 1] = this[i];
+    }
   }
   return newarr;
 };
@@ -169,21 +172,41 @@ Array.prototype.myPush = function(...elements) {
 };
 
 // Testing push
+console.log("Testing push");
 let arr3 = [1,2,3];
 let arr4 = [4,5,6];
 arr3.myPush(...arr4);
 console.log(arr3);
 arr3.myPush(7,8);
 console.log(arr3);
-console.log();
+console.log(" ");
 
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function(searchElement, fromIndex = (this.length - 1)) {
+  if (fromIndex >= this.length)
+  {
+    fromIndex = this.length - 1;
+  }
+  if (fromIndex < 0)
+  {
+      fromIndex = (this.length - 1) + fromIndex;
+  }
+
   for (let i = fromIndex; i >= 0; i--)
   {
-    
+      if (this[i] === searchElement)
+      {
+        return i;
+      }
   }
+  return -1;
 };
+
+// Testing lastIndexOf
+console.log("Testing lastIndexOf");
+console.log(arr.myLastIndexOf(3));
+console.log(arr.lastIndexOf(3));
+console.log(" ");
 
 // KEYS //
 Object.grabKeys = function() {
