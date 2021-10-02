@@ -116,11 +116,24 @@ console.log(arr.reduce((a,b) => a + b, 10));
 console.log(" ");
 
 // INCLUDES //
-Array.prototype.myIncludes = function() {
+Array.prototype.myIncludes = function(searchElement, fromIndex = 0) {
+  if (fromIndex < 0)
+    fromIndex = this.length + fromIndex;
 
+  for (let i = fromIndex; i < this.length; i++)
+  {
+    if (this[i] === searchElement)
+      return true;
+  }
+  return false;
 };
 
-// Come back after checking what sameValueZero is (no internet right now)
+// Testing includes
+let inclarr = ["A"]
+console.log("Testing includes");
+console.log(inclarr.myIncludes("a"));
+console.log(inclarr.includes("a"));
+console.log(" ");
 
 // INDEXOF //
 Array.prototype.myIndexOf = function() {
@@ -128,7 +141,7 @@ Array.prototype.myIndexOf = function() {
 };
 
 // PUSH //
-Array.prototype.myPush = function(*elements) {
+Array.prototype.myPush = function() {
 
 };
 
