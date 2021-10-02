@@ -209,12 +209,42 @@ console.log(arr.lastIndexOf(3));
 console.log(" ");
 
 // KEYS //
-Object.grabKeys = function() {
-
+Object.grabKeys = function(obj) {
+  let keys = [];
+  for (let key in obj)
+  {
+    keys.myPush(key);
+  }
+  return keys;
 };
+
+console.log("Testing keys");
+let obj = {
+  1 : "a",
+  2 : "b",
+  3 : "c"
+}
+console.log(Object.keys(obj));
+console.log(Object.grabKeys(obj));
 
 // VALUES //
 Object.grabValues = function() {
 
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
