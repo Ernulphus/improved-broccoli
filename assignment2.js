@@ -78,11 +78,22 @@ console.log(arr.some( (x) => x - 3 == 1));
 console.log(" ");
 
 // EVERY //
-Array.prototype.myEvery = function() {
+Array.prototype.myEvery = function(callbackFn) {
+  for (let i = 0; i < this.length; i++)
+  {
+    if (this[i] === undefined) continue;
 
+    if (!callbackFn(this[i], i, this))
+      return false;
+  }
+  return true;
 };
 
-
+// Testing every
+console.log("Testing every");
+console.log(arr.myEvery( (x) => x < 5));
+console.log(arr.every( (x) => x < 5));
+console.log(" ");
 
 // REDUCE //
 Array.prototype.myReduce = function() {
